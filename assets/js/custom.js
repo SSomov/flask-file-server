@@ -31,7 +31,7 @@ $(document).ready(function(){
         addMore: true,
         templates: {
             box: '<ul class="jFiler-items-list jFiler-items-default"></ul>',
-            item: '<li class="jFiler-item"><div class="jFiler-item-container"><div class="jFiler-item-inner"><div class="jFiler-item-icon pull-left">{{fi-icon}}</div><div class="jFiler-item-info pull-left"><div class="jFiler-item-title" title="{{fi-name}}">{{fi-name | limitTo:30}}</div><div class="jFiler-item-others"><span>size: {{fi-size2}}</span><span>type: {{fi-extension}}</span><span class="jFiler-item-status">{{fi-progressBar}}</span></div></div></div></div></li>',
+            item: '<li class="jFiler-item"><div class="jFiler-item-container"><div class="jFiler-item-inner"><div class="jFiler-item-icon pull-left">{{fi-icon}}</div><div class="jFiler-item-info pull-left"><div class="jFiler-item-title" title="{{fi-name}}">{{fi-name | limitTo:30}}</div><div class="jFiler-item-others"><span>размер: {{fi-size2}}</span><span>тип: {{fi-extension}}</span><span class="jFiler-item-status">{{fi-progressBar}}</span></div></div></div></div></li>',
             itemAppend: '<li class="jFiler-item"><div class="jFiler-item-container"><div class="jFiler-item-inner"><div class="jFiler-item-icon pull-left">{{fi-icon}}</div><div class="jFiler-item-info pull-left"><div class="jFiler-item-title">{{fi-name | limitTo:35}}</div><div class="jFiler-item-others"><span>size: {{fi-size2}}</span><span>type: {{fi-extension}}</span><span class="jFiler-item-status"></span></div></div></div></div></li>',
             progressBar: '<div class="bar"></div>',
             itemAppendToEnd: false,
@@ -55,11 +55,11 @@ $(document).ready(function(){
                 data = JSON.parse(data)
                 if (data.status == 'success') {
                     el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                        $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
+                        $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Успешно</div>").hide().appendTo(parent).fadeIn("slow");
                     });
                 } else {
                     el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                        $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error: " + data.msg + "</div>").hide().appendTo(parent).fadeIn("slow");
+                        $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Ошибка: " + data.msg + "</div>").hide().appendTo(parent).fadeIn("slow");
                     });
                 }
             },
@@ -67,7 +67,7 @@ $(document).ready(function(){
                 data = JSON.parse(jqxhr.responseText)
                 var parent = el.find(".jFiler-jProgressBar").parent();
                 el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                    $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error: " + data.msg + "</div>").hide().appendTo(parent).fadeIn("slow");
+                    $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Ошибка: " + data.msg + "</div>").hide().appendTo(parent).fadeIn("slow");
                 });
             },
             statusCode: null,
@@ -75,17 +75,17 @@ $(document).ready(function(){
             onComplete: null
         },
         captions: {
-            button: "Add Files",
-            feedback: "Choose files To Upload",
-            feedback2: "files were chosen",
-            drop: "Drop file here to Upload",
-            removeConfirmation: "Are you sure you want to remove this file?",
+            button: "Добавить файл",
+            feedback: "Выберите файл для загрузки",
+            feedback2: "файлы были выбраны",
+            drop: "Перетащите файл для загрузки",
+            removeConfirmation: "Вы уверены, что хотите удалить этот файл?",
             errors: {
-                filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
-                filesType: "Only Images are allowed to be uploaded.",
-                filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-fileMaxSize}} MB.",
-                filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB.",
-                folderUpload: "You are not allowed to upload folders."
+                filesLimit: "Только {{fi-limit}} файлы могут быть загружены.",
+                filesType: "Только изображения могут быть загружены.",
+                filesSize: "{{fi-name}} слишком большой! Пожалуйста, загрузите файл размером до {{fi-fileMaxSize}} MB.",
+                filesSizeAll: "Выбранные вами файлы слишком велики! Загрузите файлы размером до {{fi-maxSize}} MB.",
+                folderUpload: "Вам запрещено загружать папки."
             }
         }
     });
